@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TheRealSunder's Portfolio</title>
+<link rel="icon" type="image/webp" href="vscode.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Fira+Code:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1e1e1e;
+    --sidebar: #252526;
+    --titlebar: #323233;
+    --border: #2d2d2d;
+    --text: #d4d4d4;
+    --muted: #6a6a6a;
+    --active: #007acc;
+    --accent: #d97757;
+    --blue: #569cd6;
+    --green: #4ec9b0;
+    --orange: #ff8c42;
+    --card-bg: #1a1a1a;
+    --hover-bg: #2a2d2e;
+    --overlay-hover: #ffffff22;
+    --text-secondary: #b0b0b0;
+    --tag-text: #999999;
+    --tag-bg: #00000030;
+    --code-bg: #0d1117;
+    --genre-offensive: #e5484d;
+    --genre-networking: #3d5a99;
+    --genre-software: #a0a0a0;
+    --genre-aiml: #C15F3C;
+    --mono: 'Courier New', Courier, monospace;
+    --font-display: 'Bowlby One', 'Arial Black', sans-serif;
+    --font-desc: 'JetBrains Mono', 'Fira Code', monospace;
+    --snippet-bg: #2b2b2b;
+    --file-text: #9d9d9d;
+    --scroll-thumb: #424242;
+    --scroll-thumb-hover: #4f4f4f;
+    /* Dark+ syntax tokens for the section intro snippets */
+    --tok-key: #c586c0;
+    --tok-decl: #569cd6;
+    --tok-fn: #dcdcaa;
+    --tok-str: #ce9178;
+    --tok-num: #b5cea8;
+    --tok-type: #4ec9b0;
+    --tok-var: #9cdcfe;
+    --tok-com: #6a9955;
+    --tok-punc: #d4d4d4;
+  }
+  :root[data-theme="light"] {
+    --bg: #ffffff;
+    --sidebar: #f3f3f3;
+    --titlebar: #e8e8e8;
+    --border: #d4d4d4;
+    --text: #1e1e1e;
+    --muted: #6e6e6e;
+    --active: #007acc;
+    --accent: #b3532f;
+    --blue: #1a73c0;
+    --green: #157f63;
+    --orange: #b35a17;
+    --card-bg: #f5f5f5;
+    --hover-bg: #e8e8e8;
+    --overlay-hover: #00000014;
+    --text-secondary: #494949;
+    --tag-text: #666666;
+    --tag-bg: #00000010;
+    --code-bg: #f0f0f0;
+    --genre-offensive: #c92a2a;
+    --genre-networking: #1b2f5e;
+    --genre-software: #5a5a5a;
+    --genre-aiml: #C15F3C;
+    --snippet-bg: #f2f2f2;
+    --file-text: #616161;
+    --scroll-thumb: #c1c1c1;
+    --scroll-thumb-hover: #a0a0a0;
+    /* Light+ syntax tokens */
+    --tok-key: #af00db;
+    --tok-decl: #0000ff;
+    --tok-fn: #795e26;
+    --tok-str: #a31515;
+    --tok-num: #098658;
+    --tok-type: #267f99;
+    --tok-var: #001080;
+    --tok-com: #008000;
+    --tok-punc: #383838;
+  }
+  :root[data-theme="monokai"] {
+    --bg: #272822;
+    --sidebar: #1e1f1c;
+    --titlebar: #1b1c18;
+    --border: #3b3c35;
+    --text: #f8f8f2;
+    --muted: #75715e;
+    --active: #a6e22e;
+    --accent: #fd971f;
+    --blue: #66d9ef;
+    --green: #a6e22e;
+    --orange: #fd971f;
+    --card-bg: #2f302a;
+    --hover-bg: #3e3d32;
+    --overlay-hover: #ffffff22;
+    --text-secondary: #cfcfc2;
+    --tag-text: #a59f85;
+    --tag-bg: #00000030;
+    --code-bg: #1e1f1c;
+    --genre-offensive: #f92672;
+    --genre-networking: #66d9ef;
+    --genre-software: #a59f85;
+    --genre-aiml: #fd971f;
+    --snippet-bg: #333429;
+    --file-text: #a59f85;
+    --scroll-thumb: #55564d;
+    --scroll-thumb-hover: #6b6c60;
+    --tok-key: #f92672;
+    --tok-decl: #66d9ef;
+    --tok-fn: #a6e22e;
+    --tok-str: #e6db74;
+    --tok-num: #ae81ff;
+    --tok-type: #66d9ef;
+    --tok-var: #f8f8f2;
+    --tok-com: #75715e;
+    --tok-punc: #f8f8f2;
+  }
+  :root[data-theme="solarized"] {
+    --bg: #002b36;
+    --sidebar: #073642;
+    --titlebar: #01313d;
+    --border: #0a4552;
+    --text: #93a1a1;
+    --muted: #586e75;
+    --active: #268bd2;
+    --accent: #cb4b16;
+    --blue: #268bd2;
+    --green: #859900;
+    --orange: #cb4b16;
+    --card-bg: #073642;
+    --hover-bg: #0b4351;
+    --overlay-hover: #ffffff1a;
+    --text-secondary: #839496;
+    --tag-text: #657b83;
+    --tag-bg: #00000030;
+    --code-bg: #012b36;
+    --genre-offensive: #dc322f;
+    --genre-networking: #268bd2;
+    --genre-software: #839496;
+    --genre-aiml: #cb4b16;
+    --snippet-bg: #0b3c48;
+    --file-text: #7a8f8f;
+    --scroll-thumb: #0f4d5c;
+    --scroll-thumb-hover: #14606f;
+    --tok-key: #859900;
+    --tok-decl: #268bd2;
+    --tok-fn: #b58900;
+    --tok-str: #2aa198;
+    --tok-num: #d33682;
+    --tok-type: #b58900;
+    --tok-var: #93a1a1;
+    --tok-com: #586e75;
+    --tok-punc: #93a1a1;
+  }
+  * { box-sizing: border-box; }
+
+  /* scrollbars — theme-matched gray */
+  html { scrollbar-color: var(--scroll-thumb) transparent; scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--scroll-thumb-hover); background-clip: content-box; }
+  ::-webkit-scrollbar-corner { background: transparent; }
+  body {
+    margin: 0;
+    font-family: var(--font-desc);
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* title bar */
+  .titlebar {
+    background: var(--titlebar);
+    color: var(--muted);
+    font-size: 13px;
+    padding: 6px 12px;
+    display: flex;
+    gap: 4px;
+    position: relative;
+    z-index: 200;
+  }
+  .menu { position: relative; }
+  .menu-label {
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .menu:hover .menu-label, .menu.open .menu-label {
+    background: var(--overlay-hover);
+    color: var(--text);
+  }
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--titlebar);
+    border: 1px solid var(--border);
+    min-width: 190px;
+    box-shadow: 0 4px 10px #00000066;
+    padding: 4px 0;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .menu.open .dropdown { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .dropdown-item {
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .dropdown-item:hover { background: var(--active); color: #fff; }
+  .dropdown-divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+  /* main layout */
+  .main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* activity bar */
+  .activitybar {
+    width: 48px;
+    background: var(--titlebar);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 20px;
+    font-size: 18px;
+    color: var(--muted);
+  }
+  .activitybar span { cursor: pointer; }
+  .activitybar span:hover { color: var(--text); }
+  .activitybar .ab-icon svg { width: 20px; height: 20px; display: block; }
+
+  /* sidebar */
+  .sidebar {
+    width: 220px;
+    background: var(--sidebar);
+    padding: 10px 0;
+    font-size: 13px;
+    overflow: hidden;
+    transition: width 0.15s ease, padding 0.15s ease;
+    flex-shrink: 0;
+  }
+  .sidebar.collapsed {
+    width: 0;
+    padding: 10px 0;
+  }
+  .sidebar-title {
+    font-family: var(--font-desc);
+    color: var(--text-secondary);
+    padding: 0 16px 8px;
+    letter-spacing: 1px;
+    font-size: 11px;
+  }
+  .file {
+    padding: 4px 16px;
+    display: grid;
+    grid-template-columns: 16px 1fr 16px;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--file-text);
+    text-decoration: none;
+    transition: color 0.12s ease;
+  }
+  .file:hover { background: var(--hover-bg); color: var(--text); }
+  .file.active { background: var(--hover-bg); color: var(--text); }
+  .file .icon { width: 16px; text-align: center; font-size: 12px; }
+  .file .file-label { text-align: center; }
+
+  /* editor */
+  .editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .tabbar {
+    display: flex;
+    background: var(--titlebar);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tab {
+    padding: 8px 10px 8px 16px;
+    font-size: 13px;
+    background: var(--titlebar);
+    color: var(--muted);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .tab.active {
+    background: var(--bg);
+    color: var(--text);
+    box-shadow: inset 0 2px 0 var(--active);
+  }
+  .tab .tab-close {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 13px;
+    color: inherit;
+  }
+  .tab .tab-close:hover { background: var(--overlay-hover); }
+
+  .breadcrumb {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    padding: 6px 20px;
+    border-bottom: 1px solid var(--border);
+    min-height: 26px;
+  }
+
+  .pages { flex: 1; overflow-y: auto; }
+  .page { display: none; padding: 60px 40px 120px; max-width: 860px; }
+  .page.active { display: block; animation: fade-in-bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+
+  @keyframes fade-in-bottom {
+    0%   { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0);    opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .page.active { animation: none; }
+  }
+  .page.empty {
+    display: none;
+    max-width: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .page.empty.active { display: flex; }
+
+  /* terminal panel */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    background: var(--bg);
+    transition: height 0.22s ease, border-color 0.22s ease;
+  }
+  .panel.open { height: 230px; border-top-color: var(--border); }
+  .panel-header {
+    background: var(--titlebar);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px;
+  }
+  .panel-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    border-bottom: 2px solid var(--active);
+    padding-bottom: 3px;
+  }
+  .panel-tab img { width: 14px; height: 14px; object-fit: contain; }
+  .panel-close { cursor: pointer; color: var(--muted); padding: 2px 6px; border-radius: 3px; }
+  .panel-close:hover { background: var(--overlay-hover); color: var(--text); }
+  .panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 12px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  .term-line.cmd { color: var(--text); }
+  .term-line.cmd .prompt { color: var(--green); }
+  .term-line.error { color: #f48771; }
+  .panel-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-top: 1px solid var(--border);
+  }
+  .panel-input-row .prompt { color: var(--green); font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+  #terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  .comment { font-family: var(--mono); color: #6a9955; margin-bottom: 20px; }
+  .snippet {
+    font-family: var(--font-desc);
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0 0 22px;
+    padding: 12px 16px;
+    background: var(--snippet-bg);
+    border-left: 2px solid var(--active);
+    border-radius: 0 4px 4px 0;
+    overflow-x: auto;
+    color: var(--tok-punc);
+  }
+  .snippet .k { color: var(--tok-key); }
+  .snippet .d { color: var(--tok-decl); }
+  .snippet .f { color: var(--tok-fn); }
+  .snippet .s { color: var(--tok-str); }
+  .snippet .n { color: var(--tok-num); }
+  .snippet .t { color: var(--tok-type); }
+  .snippet .v { color: var(--tok-var); }
+  .snippet .c { color: var(--tok-com); font-style: italic; }
+
+  /* typewriter — width is in ch so it reveals the text, not the whole column */
+  .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.12em solid var(--accent);
+    max-width: 100%;
+    vertical-align: bottom;
+  }
+  .typewriter.run {
+    animation:
+      typing 2.6s steps(48, end) both,
+      blink-caret 0.75s step-end infinite;
+  }
+  @keyframes typing {
+    from { width: 0; }
+    to   { width: var(--tw-width); }
+  }
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50%      { border-color: var(--accent); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .typewriter.run { animation: none; width: auto; }
+  }
+
+  /* jupyter-style notebook cells (about.py) */
+  .nb-cell {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 26px;
+  }
+  .nb-row {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+  }
+  .nb-prompt {
+    font-family: var(--font-desc);
+    font-size: 12px;
+    color: var(--blue);
+    text-align: right;
+    padding-top: 13px;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .nb-prompt.out { color: var(--accent); padding-top: 2px; }
+  .nb-row .snippet { margin: 0; }
+  .nb-out > *:first-child { margin-top: 0; }
+  .nb-out { padding-top: 2px; }
+  .nb-cell + .nb-cell { margin-top: 0; }
+  @media (max-width: 700px) {
+    .nb-row { grid-template-columns: 1fr; }
+    .nb-prompt { text-align: left; padding-top: 0; }
+  }
+
+  /* education entries */
+  .edu-item { margin-bottom: 20px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-years { font-family: var(--font-desc); font-size: 12px; color: var(--muted); }
+  .edu-school { font-family: var(--font-display); font-size: 17px; color: var(--text); margin: 4px 0 6px; }
+  .edu-detail { font-family: var(--font-desc); font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .edu-honors { color: var(--green); }
+
+  /* go-to-file modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: #00000088;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 90px;
+    z-index: 500;
+  }
+  .modal-backdrop.open { display: flex; }
+  .search-box {
+    width: min(560px, 92vw);
+    background: var(--titlebar);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 8px 28px #00000077;
+    overflow: hidden;
+  }
+  #search-input {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg);
+    border: none;
+    border-bottom: 1px solid var(--border);
+    outline: none;
+    color: var(--text);
+    font-family: var(--font-desc);
+    font-size: 14px;
+  }
+  .search-results { max-height: 320px; overflow-y: auto; padding: 4px 0; }
+  .search-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .search-item img { width: 14px; height: 14px; object-fit: contain; }
+  .search-item .search-sub { margin-left: auto; color: var(--muted); font-size: 11px; }
+  .search-item.sel, .search-item:hover { background: var(--active); color: #fff; }
+  .search-item.sel .search-sub, .search-item:hover .search-sub { color: #ffffffcc; }
+  .search-empty { padding: 14px; color: var(--muted); font-size: 13px; }
+  .search-hint {
+    padding: 8px 14px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-desc);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* theme picker on the activity bar */
+  .ab-menu-wrap { position: relative; margin-top: auto; margin-bottom: 10px; }
+  .theme-menu {
+    position: absolute;
+    left: calc(100% + 8px);
+    bottom: 0;
+    min-width: 190px;
+    background: var(--titlebar);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 4px 14px #00000066;
+    padding: 4px 0;
+    display: none;
+    z-index: 400;
+  }
+  .theme-menu.open { display: block; }
+  .theme-menu-title {
+    padding: 6px 14px 8px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .theme-option:hover { background: var(--active); color: #fff; }
+  .theme-menu span:hover { color: inherit; } /* beats .activitybar span:hover */
+  .theme-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid #ffffff33;
+    flex-shrink: 0;
+  }
+  .theme-option .theme-check { margin-left: auto; opacity: 0; }
+  .theme-option.selected .theme-check { opacity: 1; }
+  .file-icon-img { width: 14px; height: 14px; object-fit: contain; vertical-align: middle; border-radius: 2px; }
+  .tab-icon img { width: 14px; height: 14px; object-fit: contain; vertical-align: middle; border-radius: 2px; }
+  .btn-icon-img { width: 14px; height: 14px; object-fit: contain; vertical-align: middle; margin-right: 4px; }
+  .stack-icon { width: 12px; height: 12px; object-fit: contain; vertical-align: middle; margin: 0 2px; }
+  .easter-egg {
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .easter-egg .hl { color: var(--green); }
+  .easter-egg s { color: var(--muted); }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: normal; }
+  h1 {
+    font-size: 38px;
+    margin: 0;
+    line-height: 1.25;
+  }
+  h1 .accent { color: var(--accent); display: block; font-size: 18px; margin-top: 10px; }
+  h2 {
+    color: var(--text);
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+  h3 {
+    color: var(--blue);
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+  .tags {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-family: var(--font-display);
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--blue);
+  }
+  .bio {
+    font-family: var(--font-desc);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .bio b { color: var(--green); font-weight: normal; }
+  #page-home .bio b { color: var(--blue); }
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover { background: var(--hover-bg); }
+  .btn.primary { background: var(--active); border-color: var(--active); }
+  .btn.primary:hover { background: #0b8ee0; }
+
+  .home-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 8px; }
+  .home-link {
+    position: relative;
+    font-family: var(--font-display);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .home-link:hover { border-color: var(--green); transform: translateY(-2px); }
+  .home-link-icon { width: 18px; height: 18px; object-fit: contain; }
+  .home-link-icon.icon-invert-dark { filter: invert(1); }
+  :root[data-theme="light"] .home-link-icon.icon-invert-dark { filter: none; }
+  .copy-bubble {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    background: var(--green);
+    color: #000;
+    font-size: 11px;
+    font-family: var(--font-display);
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .copy-bubble.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .role-badges { display: flex; gap: 10px; margin: 18px 0 4px; flex-wrap: wrap; }
+  .role-badge {
+    font-family: var(--font-display);
+    font-size: 12px;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--card-bg);
+    color: var(--text);
+  }
+  .gh-calendar {
+    display: block;
+    max-width: 100%;
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--code-bg);
+    padding: 12px;
+  }
+
+  .meta { font-family: var(--font-desc); color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  ul.list { font-family: var(--font-desc); margin: 0 0 20px; padding-left: 20px; color: var(--text-secondary); line-height: 1.7; }
+  ul.list li { margin-bottom: 4px; }
+  .note {
+    font-family: var(--font-desc);
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+    border-left: 2px solid var(--border);
+    padding-left: 12px;
+    margin: 16px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+  }
+  th { color: var(--blue); background: var(--sidebar); }
+  td { color: var(--text-secondary); }
+  tr.total td { color: var(--green); }
+
+  .projects-subtitle { color: var(--muted); font-family: var(--mono); font-size: 13px; margin: -8px 0 24px; }
+
+  .project-filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .pixel-btn {
+    position: relative;
+    width: 150px;
+    height: 42px;
+    border: 1px solid var(--border);
+    outline: none;
+    color: #fff;
+    background: #000;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .pixel-btn.active { border-color: var(--clr); }
+  .pixel-btn .pixel-label { position: relative; z-index: 2; }
+  .pixel-container { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  .pixel-btn .pixel {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--clr);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .pixel-btn:hover .pixel, .pixel-btn.active .pixel { opacity: 1; }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--card-bg);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .project-card:hover {
+    border-color: var(--active);
+    transform: translateY(-2px);
+  }
+  .project-card-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .gh-badge {
+    font-family: var(--font-display);
+    font-size: 11px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .gh-badge:hover { color: var(--text); border-color: var(--muted); }
+  .badge-group { display: flex; gap: 6px; }
+  .project-cats {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .project-cats.c-offensive  { color: var(--genre-offensive); }
+  .project-cats.c-soc        { color: var(--blue); }
+  .project-cats.c-networking { color: var(--genre-networking); }
+  .project-cats.c-software   { color: var(--genre-software); }
+  .project-cats.c-ai-ml      { color: var(--genre-aiml); }
+  .project-card .title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--text);
+    margin: 0 0 8px;
+  }
+  .project-desc {
+    font-family: var(--font-desc);
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .project-desc b { color: var(--green); font-weight: 600; }
+  .project-note-sm {
+    font-family: var(--font-desc);
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tags span {
+    font-family: var(--font-display);
+    font-size: 11px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+  }
+
+  /* blog */
+  .blog-header-sub { font-family: var(--font-desc); color: var(--muted); margin: -8px 0 28px; line-height: 1.6; font-size: 14px; max-width: 640px; }
+  .blog-divider-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin: 36px 0 16px;
+  }
+  .blog-divider-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .blog-featured {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--orange);
+    border-radius: 8px;
+    padding: 26px;
+    background: var(--card-bg);
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .blog-featured:hover { border-color: var(--orange); transform: translateY(-2px); }
+  .blog-cats {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .blog-title-lg { font-family: var(--font-display); font-size: 22px; font-weight: normal; color: var(--text); margin: 0 0 10px; line-height: 1.35; }
+  .blog-excerpt { font-family: var(--font-desc); color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 14px; max-width: 640px; }
+  .blog-meta { color: var(--muted); font-size: 12px; font-family: var(--mono); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .blog-card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--orange);
+    border-radius: 8px;
+    padding: 18px;
+    background: var(--card-bg);
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .blog-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+  .blog-title-sm { font-family: var(--font-display); font-size: 15px; font-weight: normal; color: var(--text); margin: 0 0 8px; }
+  .blog-excerpt-sm { font-family: var(--font-desc); color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 12px; }
+
+  .blog-back {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--blue);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--mono);
+  }
+  .blog-back:hover { text-decoration: underline; }
+  .blog-post-title { font-family: var(--font-display); font-size: 28px; font-weight: normal; margin: 0 0 10px; line-height: 1.35; }
+  .blog-post-meta { color: var(--muted); font-size: 13px; font-family: var(--mono); margin-bottom: 28px; }
+  .blog-post-body p { font-family: var(--font-desc); color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; max-width: 680px; }
+
+  /* timeline */
+  .timeline { position: relative; max-width: 700px; margin: 24px 0 32px; padding-left: 56px; }
+  .timeline-line {
+    position: absolute;
+    left: 19px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-progress {
+    position: absolute;
+    left: 19px;
+    top: 4px;
+    width: 2px;
+    height: calc(100% - 8px);
+    background: var(--green);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-node {
+    position: absolute;
+    left: -56px;
+    top: 2px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--sidebar);
+    border: 2px solid var(--green);
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .timeline-node::after {
+    content: '';
+    width: 8px;
+    height: 4px;
+    border-left: 2px solid var(--green);
+    border-bottom: 2px solid var(--green);
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+
+  .timeline-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    background: var(--card-bg);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .timeline-card:hover {
+    transform: scale(1.02);
+    border-color: var(--green);
+    box-shadow: 0 8px 20px #00000060;
+  }
+  .timeline-card.expanded {
+    transform: scale(1.05);
+    position: relative;
+    z-index: 10;
+    border-color: var(--green);
+    box-shadow: 0 14px 34px #000000a0;
+  }
+  .timeline-hover-hint {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+  }
+  .timeline-card:hover .timeline-hover-hint { max-height: 140px; opacity: 1; margin-top: 6px; }
+  .timeline-card.expanded .timeline-hover-hint { display: none; }
+  .timeline-expand-info {
+    font-family: var(--font-desc);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  }
+  .timeline-card.expanded .timeline-expand-info { max-height: 300px; opacity: 1; margin-top: 12px; }
+  .timeline-minimize-btn {
+    display: none;
+    margin-top: 10px;
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .timeline-minimize-btn:hover { color: var(--text); border-color: var(--muted); }
+  .timeline-card.expanded .timeline-minimize-btn { display: inline-block; }
+  .timeline-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .timeline-title { font-size: 15px; font-weight: normal; color: var(--text); margin: 0; }
+  .timeline-badge {
+    font-family: var(--font-display);
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--green);
+    color: var(--green);
+    background: rgba(78, 201, 176, 0.1);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .timeline-meta {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+    margin-bottom: 10px;
+  }
+  .timeline-org { color: var(--blue); }
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .timeline-tags span {
+    font-family: var(--font-display);
+    font-size: 11px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+  }
+  .timeline-desc { font-family: var(--font-desc); font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+  .timeline-progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .timeline-progress-fill {
+    height: 100%;
+    background: var(--green);
+    width: 0%;
+  }
+
+  .course-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .course-groups h3 { margin-bottom: 8px; }
+
+  /* statusbar */
+  .statusbar {
+    background: var(--active);
+    color: white;
+    font-size: 12px;
+    padding: 3px 12px;
+    display: flex;
+    gap: 16px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="titlebar" id="menubar">
+    <div class="menu" data-menu="file">
+      <div class="menu-label">File</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="new-tab">New Tab</div>
+        <div class="dropdown-item" data-action="close-tab">Close Tab</div>
+        <div class="dropdown-item" data-action="close-all-tabs">Close All Tabs</div>
+        <div class="dropdown-divider"></div>
+        <div class="theme-menu-title">Open Recent</div>
+        <div id="recent-list"></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="edit">
+      <div class="menu-label">Edit</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="noop">Undo</div>
+        <div class="dropdown-item" data-action="noop">Redo</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item" data-action="noop">Cut</div>
+        <div class="dropdown-item" data-action="noop">Copy</div>
+        <div class="dropdown-item" data-action="noop">Paste</div>
+      </div>
+    </div>
+    <div class="menu" data-menu="view">
+      <div class="menu-label">View</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="toggle-sidebar">Toggle Sidebar</div>
+        <div class="dropdown-item" data-action="toggle-terminal">Toggle Terminal</div>
+        <div class="dropdown-item" data-action="noop">Command Palette...</div>
+      </div>
+    </div>
+    <div class="menu" data-menu="go">
+      <div class="menu-label">Go</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="noop">Go to File...</div>
+        <div class="dropdown-item" data-action="noop">Back</div>
+        <div class="dropdown-item" data-action="noop">Forward</div>
+      </div>
+    </div>
+    <div class="menu" data-menu="run">
+      <div class="menu-label">Run</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="noop">Run Without Debugging</div>
+        <div class="dropdown-item" data-action="noop">Start Debugging</div>
+      </div>
+    </div>
+    <div class="menu" data-menu="terminal">
+      <div class="menu-label">Terminal</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="new-terminal">New Terminal</div>
+        <div class="dropdown-item" data-action="clear-terminal">Clear Terminal</div>
+        <div class="dropdown-item" data-action="close-terminal">Close Terminal</div>
+      </div>
+    </div>
+    <div class="menu" data-menu="help">
+      <div class="menu-label">Help</div>
+      <div class="dropdown">
+        <div class="dropdown-item" data-action="noop">Welcome</div>
+        <div class="dropdown-item" data-action="noop">About</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="activitybar">
+      <span class="ab-icon" data-action="toggle-sidebar" title="Toggle Sidebar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span>
+      <span class="ab-icon" data-action="open-search" title="Go to File..."><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></span>
+      <span class="ab-icon" data-action="open-github" title="Source Control — GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6a9 9 0 0 0-9 9V3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></svg></span>
+      <span class="ab-icon" data-action="toggle-terminal" title="Toggle Terminal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 11 2-2-2-2"/><path d="M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/></svg></span>
+      <div class="ab-menu-wrap">
+        <span class="ab-icon" data-action="toggle-theme-menu" title="Color Theme"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <div class="theme-menu" id="theme-menu">
+          <div class="theme-menu-title">Color Theme</div>
+          <div class="theme-option" data-theme-name="dark"><span class="theme-swatch" style="background:#1e1e1e"></span>Dark+<span class="theme-check">✓</span></div>
+          <div class="theme-option" data-theme-name="light"><span class="theme-swatch" style="background:#ffffff"></span>Light+<span class="theme-check">✓</span></div>
+          <div class="theme-option" data-theme-name="monokai"><span class="theme-swatch" style="background:#272822"></span>Monokai<span class="theme-check">✓</span></div>
+          <div class="theme-option" data-theme-name="solarized"><span class="theme-swatch" style="background:#002b36"></span>Solarized Dark<span class="theme-check">✓</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-title">PORTFOLIO</div>
+      <div class="file" data-page="home"><span class="icon"><img class="file-icon-img" src="typescript_logo.png" alt=""></span><span class="file-label">home.ts</span></div>
+      <div class="file" data-page="about"><span class="icon"><img class="file-icon-img" src="python_icon.png" alt=""></span><span class="file-label">about.py</span></div>
+      <div class="file" data-page="experience"><span class="icon"><img class="file-icon-img" src="cpp_logo.png" alt=""></span><span class="file-label">experience.cpp</span></div>
+      <div class="file" data-page="projects"><span class="icon"><img class="file-icon-img" src="JavaScript-logo.png" alt=""></span><span class="file-label">projects.js</span></div>
+      <div class="file" data-page="links"><span class="icon"><img class="file-icon-img" src="pdf_logo.png" alt=""></span><span class="file-label">Resume.pdf</span></div>
+      <div class="file" data-page="blog"><span class="icon"><img class="file-icon-img" src="php_logo.svg" alt=""></span><span class="file-label">blog.php</span></div>
+    </div>
+
+    <div class="editor">
+      <div class="tabbar" id="tabbar"></div>
+      <div class="breadcrumb" id="breadcrumb"></div>
+
+      <div class="pages" id="pages">
+
+        <div class="page empty" id="page-empty">No file open. Select a file from the sidebar.</div>
+
+        <div class="page" id="page-home">
+          <pre class="snippet"><span class="c">// home.ts — entry point</span>
+<span class="d">const</span> <span class="v">intro</span>: <span class="t">Introduction</span> = <span class="v">portfolio</span>.<span class="f">whoami</span>();
+<span class="v">console</span>.<span class="f">log</span>(<span class="v">intro</span>);</pre>
+          <h1 id="home-name">Darylle Calugtong</h1>
+          <div class="bio">
+            Cybersecurity professional knowledgeable in <b>Vulnerability Assessment and
+            Penetration Testing (VAPT)</b>. Passionate in offensive security,
+            <b>Security Operations Center (SOC)</b>, <b>Agentic AI Systems Design</b> and
+            <b>Malware Analysis</b>. While I'm early in my career, my hands-on projects
+            show I'm ready to contribute and grow with a forward-thinking team.
+          </div>
+          <div class="bio">
+            <span class="typewriter" id="home-typewriter">Currently working on my INE eJPT Certification</span>
+          </div>
+
+          <pre class="snippet"><span class="d">const</span> <span class="v">contacts</span>: <span class="t">string</span>[] = <span class="v">me</span>.<span class="f">getContactDetails</span>();
+<span class="k">for</span> (<span class="d">const</span> <span class="v">contact</span> <span class="k">of</span> <span class="v">contacts</span>) <span class="v">console</span>.<span class="f">log</span>(<span class="v">contact</span>);
+<span class="c">// stdout ↓</span></pre>
+          <div class="home-links">
+            <a class="home-link" href="https://github.com/TheRealSunder" target="_blank" rel="noopener noreferrer">
+              <img class="home-link-icon icon-invert-dark" src="github.svg" alt="">
+            </a>
+            <a class="home-link" href="https://www.linkedin.com/in/daryllexander/" target="_blank" rel="noopener noreferrer">
+              <img class="home-link-icon" src="linkedin-app-white-icon.webp" alt="">
+            </a>
+            <button class="home-link" id="copy-email-btn" type="button">
+              <img class="home-link-icon" src="mail.png" alt="">
+              <span class="copy-bubble" id="copy-bubble">Copied!</span>
+            </button>
+          </div>
+
+          <pre class="snippet" style="margin-top: 36px;"><span class="v">console</span>.<span class="f">log</span>(<span class="k">await</span> <span class="v">github</span>.<span class="f">contributions</span>(<span class="s">"TheRealSunder"</span>));</pre>
+          <img class="gh-calendar" src="https://ghchart.rshah.org/2ea043/TheRealSunder" alt="GitHub contribution calendar">
+        </div>
+
+        <div class="page" id="page-about">
+          <div class="nb-cell">
+            <div class="nb-row">
+              <div class="nb-prompt">In&nbsp;[1]:</div>
+              <pre class="snippet"><span class="c"># about.py</span>
+<span class="k">from</span> <span class="v">portfolio</span> <span class="k">import</span> <span class="t">Darylle</span>
+
+<span class="v">me</span> = <span class="t">Darylle</span>(<span class="v">grad_year</span>=<span class="n">2026</span>, <span class="v">focus</span>=<span class="s">"offensive security"</span>)
+<span class="f">print</span>(<span class="v">me</span>.<span class="f">summary</span>())</pre>
+            </div>
+            <div class="nb-row">
+              <div class="nb-prompt out">Out[1]:</div>
+              <div class="nb-out">
+                <h1><span id="scramble-name">Darylle Xander Calugtong</span><span class="accent">Pentesting · Blue Team / SOC · Applied ML · Networking</span></h1>
+
+                <div class="bio">
+                  <b>Cum Laude</b> graduate from <b>De La Salle University Manila</b>. BS in
+                  <b>Computer Science Major in Network Information Security</b> Minor in
+                  Financial Risk and Analytics. Personal and academic project work spans
+                  offensive security, blue-team/SOC tooling, applied ML for malware
+                  classification and networking/cloud infrastructure. Knowledgeable in
+                  AI/LLM: LangChain, vector databases, LLM fine-tuning,
+                  Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nb-cell">
+            <div class="nb-row">
+              <div class="nb-prompt">In&nbsp;[2]:</div>
+              <pre class="snippet"><span class="k">for</span> <span class="v">school</span> <span class="k">in</span> <span class="v">me</span>.<span class="v">education</span>:
+    <span class="f">print</span>(<span class="s">f"</span>{<span class="v">school</span>.<span class="v">years</span>}<span class="s">  </span>{<span class="v">school</span>.<span class="v">name</span>}<span class="s">  </span>{<span class="v">school</span>.<span class="v">honors</span>}<span class="s">"</span>)</pre>
+            </div>
+            <div class="nb-row">
+              <div class="nb-prompt out">Out[2]:</div>
+              <div class="nb-out">
+                <h2>Education</h2>
+                <div class="edu-item">
+                  <div class="edu-years">2022 – 2026</div>
+                  <div class="edu-school">De La Salle University</div>
+                  <div class="edu-detail">
+                    BS Computer Science, Major in Network and Information Security,
+                    Minor in Financial Risk and Analytics<br>
+                    3.44 / 4.0 GPA · <span class="edu-honors">Cum Laude</span>
+                  </div>
+                </div>
+                <div class="edu-item">
+                  <div class="edu-years">2013 – 2021</div>
+                  <div class="edu-school">Manila Science High School</div>
+                  <div class="edu-detail">
+                    Philippines' Pilot Science High School<br>
+                    Graduated with <span class="edu-honors">High Honors</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nb-cell">
+            <div class="nb-row">
+              <div class="nb-prompt">In&nbsp;[3]:</div>
+              <pre class="snippet"><span class="k">for</span> <span class="v">area</span>, <span class="v">topics</span> <span class="k">in</span> <span class="v">me</span>.<span class="v">interests</span>.<span class="f">items</span>():
+    <span class="k">for</span> <span class="v">topic</span> <span class="k">in</span> <span class="v">topics</span>:
+        <span class="f">print</span>(<span class="s">f"[</span>{<span class="v">area</span>}<span class="s">] </span>{<span class="v">topic</span>}<span class="s">"</span>)</pre>
+            </div>
+            <div class="nb-row">
+              <div class="nb-prompt out">Out[3]:</div>
+              <div class="nb-out">
+                <h2>Relevant Interests</h2>
+                <div class="course-groups">
+                  <div>
+                    <h3>Offensive Security</h3>
+                    <ul class="list">
+                      <li>OWASP WSTG Methodology</li>
+                      <li>OWASP Top 10</li>
+                      <li>MITRE ATT&amp;CK</li>
+                      <li>Adversary Emulation</li>
+                      <li>Adversarial ML</li>
+                      <li>Social Engineering</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Defensive</h3>
+                    <ul class="list">
+                      <li>Security Operations Center</li>
+                      <li>Malware Analysis</li>
+                      <li>Digital Forensics and Incident Response</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Networking / Cloud</h3>
+                    <ul class="list">
+                      <li>Microsoft Azure</li>
+                      <li>Named Networking</li>
+                      <li>Distributed Systems</li>
+                      <li>Data Communications</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nb-cell">
+            <div class="nb-row">
+              <div class="nb-prompt">In&nbsp;[4]:</div>
+              <pre class="snippet"><span class="f">print</span>(<span class="s">"\n"</span>.<span class="f">join</span>(<span class="v">c</span> <span class="k">for</span> <span class="v">c</span> <span class="k">in</span> <span class="v">me</span>.<span class="v">certifications</span> <span class="k">if</span> <span class="v">c</span>.<span class="v">passed</span>))</pre>
+            </div>
+            <div class="nb-row">
+              <div class="nb-prompt out">Out[4]:</div>
+              <div class="nb-out">
+                <h2>Certifications &amp; Achievements</h2>
+                <ul class="list">
+                  <li>ISC2 Certified in Cybersecurity (CC) — exam passed</li>
+                  <li>Introduction to Digital Forensics (CSW-100)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="page" id="page-experience">
+          <pre class="snippet"><span class="c">// experience.cpp</span>
+<span class="k">#include</span> <span class="s">"career.h"</span>
+
+<span class="d">int</span> <span class="f">main</span>() {
+    <span class="t">Career</span> <span class="v">me</span>{<span class="s">"Darylle Calugtong"</span>};
+
+    <span class="k">for</span> (<span class="d">const</span> <span class="d">auto</span>&amp; <span class="v">role</span> : <span class="v">me</span>.<span class="f">roles</span>())
+        <span class="v">std</span>::<span class="v">cout</span> &lt;&lt; <span class="v">role</span>.<span class="f">title</span>() &lt;&lt; <span class="s">" @ "</span> &lt;&lt; <span class="v">role</span>.<span class="f">org</span>() &lt;&lt; <span class="s">'\n'</span>;
+
+    <span class="k">return</span> <span class="n">0</span>;
+}</pre>
+          <h2>Experience</h2>
+          <div class="meta">Most recent first · hover a card for the summary, click to expand</div>
+
+          <div class="timeline" id="experience-timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress"></div>
+
+            <div class="timeline-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card">
+                <div class="timeline-card-top">
+                  <h3 class="timeline-title">Security Engineer Intern</h3>
+                  <span class="timeline-badge">Completed</span>
+                </div>
+                <div class="timeline-meta"><span class="timeline-org">RT&amp;Co. Cybersecurity</span> · Jan 2026 - Apr 2026</div>
+                <div class="timeline-tags">
+                  <span>Offensive Security</span><span>VAPT</span><span>OWASP WSTG</span><span>MITRE ATT&amp;CK</span>
+                </div>
+                <div class="timeline-progress-bar"><div class="timeline-progress-fill"></div></div>
+                <div class="timeline-hover-hint">Delivered vulnerability and risk assessments across 5 client web applications by running structured penetration testing against the OWASP Web Security Testing Guide (WSTG), producing prioritized findings clients could act on.</div>
+                <div class="timeline-expand-info">
+                  Identified, validated and documented 11 high-severity vulnerabilities, including IDOR, malicious file upload and session replay, capturing severity ratings, CVE references and reproduction steps to support remediation.
+                  <br><br>
+                  Mapped confirmed attack paths to the MITRE ATT&amp;CK framework to classify adversary techniques and threat-actor TTPs, documenting all findings along with severity and CVE.
+                  <button class="timeline-minimize-btn" type="button">&#9601; Minimize</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card">
+                <div class="timeline-card-top">
+                  <h3 class="timeline-title">SOC Analyst</h3>
+                  <span class="timeline-badge">Completed</span>
+                </div>
+                <div class="timeline-meta"><span class="timeline-org">Insightz Technology</span> · Oct 2025 - Dec 2025</div>
+                <div class="timeline-tags">
+                  <span>SOC</span><span>SIEM</span><span>Splunk</span>
+                </div>
+                <div class="timeline-progress-bar"><div class="timeline-progress-fill"></div></div>
+                <div class="timeline-hover-hint">Monitored and investigated security events using Splunk SIEM while assisting with threat monitoring and IOC analysis.</div>
+                <div class="timeline-expand-info">
+                  Worked alongside the Security Operations Center (SOC) team to monitor and triage security events using Splunk SIEM. Investigated authentication, endpoint and network-related alerts by analyzing log data to determine whether events represented legitimate threats or false positives. Contributed to daily operational reporting, maintained IOC tracking records and completed SecureWorks and Fortinet training focused on security monitoring, threat analysis and SOC operations.
+                  <button class="timeline-minimize-btn" type="button">&#9601; Minimize</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card">
+                <div class="timeline-card-top">
+                  <h3 class="timeline-title">Research Assistant</h3>
+                  <span class="timeline-badge">Completed</span>
+                </div>
+                <div class="timeline-meta"><span class="timeline-org">Advanced Research Institute for Informatics, Computing and Networking (AdRIC)</span> · Oct 2023 - Aug 2024</div>
+                <div class="timeline-tags">
+                  <span>Networking Protocols</span><span>AODV</span><span>DSDV</span><span>NS-3</span>
+                </div>
+                <div class="timeline-progress-bar"><div class="timeline-progress-fill"></div></div>
+                <div class="timeline-hover-hint">Primary research is: Comprehensive Analysis of Performance Metrics used by AODV and DSDV Routing Protocol.</div>
+                <div class="timeline-expand-info">
+                  Investigated the performance characteristics of reactive (AODV) and proactive (DSDV) MANET routing protocols through NS-3 simulation. Assessed routing efficiency, reliability and latency by measuring routing overhead, packet delivery ratio and end-to-end delay under multiple network scenarios.
+                  <button class="timeline-minimize-btn" type="button">&#9601; Minimize</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="page" id="page-projects">
+          <div class="comment">// projects.js</div>
+          <h2>Projects</h2>
+          <div class="projects-subtitle">const projects = [ ...offensive, ...defensive, ...infrastructure ]</div>
+
+          <div class="project-filter-bar">
+            <button class="pixel-btn active" data-filter="all" style="--clr: #999999"><span class="pixel-label">All</span><div class="pixel-container"></div></button>
+            <button class="pixel-btn" data-filter="offensive" style="--clr: #e5484d"><span class="pixel-label">Offensive</span><div class="pixel-container"></div></button>
+            <button class="pixel-btn" data-filter="soc" style="--clr: #569cd6"><span class="pixel-label">SOC</span><div class="pixel-container"></div></button>
+            <button class="pixel-btn" data-filter="networking" style="--clr: #3d5a99"><span class="pixel-label">Networking</span><div class="pixel-container"></div></button>
+            <button class="pixel-btn" data-filter="software" style="--clr: #a0a0a0"><span class="pixel-label">Software</span><div class="pixel-container"></div></button>
+            <button class="pixel-btn" data-filter="ai-ml" style="--clr: #C15F3C"><span class="pixel-label">AI/ML</span><div class="pixel-container"></div></button>
+          </div>
+
+          <div class="project-grid">
+
+            <div class="project-card" data-genre="offensive" data-title="Application Threat Modeling (Coffee System)">
+              <div class="project-cats c-offensive">OFFENSIVE · THREAT MODELING</div>
+              <div class="title">Application Threat Modeling (Coffee System)</div>
+              <div class="project-desc">
+                STRIDE/DREAD threat modeling assessment on a coffee-ordering system,
+                mapped in OWASP Threat Dragon. Covered a 5-workflow application,
+                identified <b>150</b> distinct threats and produced a full
+                remediation plan mapped to CWE and sequenced by DREAD score
+                (top risk: CWE-862, scoring 10,920).
+              </div>
+              <div class="project-tags">
+                <span>OWASP Threat Dragon</span><span>STRIDE</span><span>DREAD</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="soc" data-title="Cloud-Based Threat Detection &amp; Monitoring System">
+              <div class="project-cats c-soc">CLOUD · MONITORING</div>
+              <div class="title">Cloud-Based Threat Detection &amp; Monitoring System</div>
+              <div class="project-desc">
+                Monitoring system analyzing AWS CloudTrail logs — rule-based
+                detection for privilege escalation and abnormal API usage,
+                statistical anomaly detection on user behavior and a real-time
+                Streamlit dashboard for alerting and visualization.
+              </div>
+              <div class="project-note-sm">No numeric outcome metric verified — presented on scope/capability.</div>
+              <div class="project-tags">
+                <span>AWS</span><span>Python</span><span>Streamlit</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="ai-ml" data-title="Dynamic Malware Analysis &amp; Dataset Construction">
+              <div class="project-card-top">
+              </div>
+              <div class="project-cats c-ai-ml">MALWARE · APPLIED ML</div>
+              <div class="title">Dynamic Malware Analysis &amp; Dataset Construction</div>
+              <div class="project-desc">
+                Built a <b>10,000+</b> sample malware/benign dataset, detonated in
+                an isolated CAPEv2 sandbox with Volatility and Suricata, and
+                engineered a behavior-based classifier across 8 malware
+                categories. <b>93%</b> accuracy, <b>0.90</b> macro F1-score.
+              </div>
+              <div class="project-tags">
+                <span>VMWare</span><span>Python</span><span>CAPEv2</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="software" data-title="Web Application System Security Hardening">
+              <div class="project-card-top">
+                <a class="gh-badge" href="https://github.com/TheRealSunder/Laboratory-Information-System" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <div class="project-cats c-software">WEB APP · HARDENING</div>
+              <div class="title">Web Application System Security Hardening</div>
+              <div class="project-desc">
+                Security hardening on a lab information system used by medical
+                technicians — 3-tier RBAC across 15 protected routes, closed
+                CSRF/input-validation gaps on 22 endpoints, migrated to
+                Keycloak/OIDC and removed in-app password storage entirely.
+              </div>
+              <div class="project-tags">
+                <span>Express</span><span>MongoDB</span><span>Keycloak</span><span>OIDC</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="soc" data-title="Homelab SOC and SIEM">
+              <div class="project-cats c-soc">BLUE TEAM · SOC</div>
+              <div class="title">Homelab SOC and SIEM</div>
+              <div class="project-desc">
+                Home SOC lab: Sysmon + Wazuh ingestion, custom detection rules
+                mapped to MITRE ATT&amp;CK across the kill chain, File Integrity
+                Monitoring and automated IP blocking — exercised against live
+                Caldera adversary emulation.
+              </div>
+              <div class="project-tags">
+                <span>VMWare</span><span>Wazuh</span><span>Apache Caldera</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="networking" data-title="Enterprise Network Design &amp; Implementation">
+              <div class="project-cats c-networking">NETWORKING · TEAM PROJECT</div>
+              <div class="title">Enterprise Network Design &amp; Implementation</div>
+              <div class="project-desc">
+                Segmented a /22 network via VLSM across 6 departments for a
+                simulated company, with inter-VLAN routing, static/dynamic
+                (RIP/OSPF) routing, NAT/PAT and SSH-hardened infrastructure —
+                built and tested on live routers/switches.
+              </div>
+              <div class="project-note-sm">Team project — presented as "as part of a team," not sole-authored work.</div>
+              <div class="project-tags">
+                <span>VLSM</span><span>VLAN</span><span>PuTTY</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="software" data-title="IEEE 754 Decimal32 Floating-Point Converter">
+              <div class="project-card-top">
+                <div class="badge-group">
+                  <a class="gh-badge" href="https://github.com/TrishaValladolid/CSARCH2-IEEE-754-Decimal-32-floating-point-converter" target="_blank" rel="noopener">GitHub ↗</a>
+                  <a class="gh-badge" href="https://csarch2-ieee-754-decimal-32-floating-nxh1.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
+                </div>
+              </div>
+              <div class="project-cats c-software">COMPUTER ARCHITECTURE · WEB TOOL</div>
+              <div class="title">IEEE 754 Decimal32 Floating-Point Converter</div>
+              <div class="project-desc">
+                Web tool converting between decimal and IEEE 754 Decimal32
+                floating-point representation, built to visualize sign,
+                exponent and mantissa bit layout for a computer architecture
+                course.
+              </div>
+              <div class="project-tags">
+                <span>JavaScript</span><span>HTML</span><span>CSS</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="offensive" data-title="Mongone">
+              <div class="project-card-top">
+                <a class="gh-badge" href="https://github.com/TheRealSunder/Mongone" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <div class="project-cats c-offensive">OFFENSIVE · MONGODB</div>
+              <div class="title">Mongone</div>
+              <div class="project-desc">
+                Python tool for assessing exposed MongoDB deployments — port
+                verification, database/collection enumeration, data
+                exfiltration with restore capability and bcrypt hash
+                cracking against rockyou.txt.
+              </div>
+              <div class="project-tags">
+                <span>Python</span><span>PyMongo</span><span>Nmap</span><span>bcrypt</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="software" data-title="ParkEase">
+              <div class="project-card-top">
+                <div class="badge-group">
+                  <a class="gh-badge" href="https://github.com/TheRealSunder/ParkEase" target="_blank" rel="noopener">GitHub ↗</a>
+                  <a class="gh-badge" href="https://therealsunder.github.io/ParkEase/" target="_blank" rel="noopener">Live ↗</a>
+                </div>
+              </div>
+              <div class="project-cats c-software">WEB APP · MARKETPLACE</div>
+              <div class="title">ParkEase</div>
+              <div class="project-desc">
+                Parking marketplace app for campus drivers and small-scale
+                parking owners — reservations, private-slot listings, an
+                owner point-of-sale flow and per-user parking settings.
+              </div>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="software" data-title="Distributed File System">
+              <div class="project-card-top">
+                <a class="gh-badge" href="https://github.com/TheRealSunder/Distributed-File-System" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <div class="project-cats c-software">DISTRIBUTED SYSTEMS</div>
+              <div class="title">Distributed File System</div>
+              <div class="project-desc">
+                Distributed file system with a head server node coordinating
+                multiple storage nodes, containerized with Docker and
+                deployed across a Proxmox cluster.
+              </div>
+              <div class="project-tags">
+                <span>Python</span><span>Docker</span><span>Proxmox</span>
+              </div>
+            </div>
+
+            <div class="project-card" data-genre="software" data-title="Taft Overflow">
+              <div class="project-card-top">
+                <div class="badge-group">
+                  <a class="gh-badge" href="https://github.com/PolySpade/Taft-Overflow" target="_blank" rel="noopener">GitHub ↗</a>
+                  <a class="gh-badge" href="https://taft-overflow.onrender.com/posts/661351c11f10a5d9d3edfc21" target="_blank" rel="noopener">Live ↗</a>
+                </div>
+              </div>
+              <div class="project-cats c-software">WEB APP · COMMUNITY FORUM</div>
+              <div class="title">Taft Overflow</div>
+              <div class="project-desc">
+                Forum platform for De La Salle University students — posts,
+                comments, voting, course-based feeds and an admin layer for
+                announcements and moderation.
+              </div>
+              <div class="project-tags">
+                <span>JavaScript</span><span>HTML</span><span>CSS</span>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="page" id="page-links">
+          <div class="comment">// RESUME.pdf</div>
+          <h2>Resume</h2>
+          <div class="bio">
+            My resume is available on request — send me a note and I'll get a copy
+            over to you. The rest of this site covers the same ground in more
+            detail: experience, projects and write-ups.
+          </div>
+
+          <div class="buttons">
+            <a class="btn primary" href="mailto:daryllecalugtong@gmail.com?subject=Resume%20request">Request Resume</a>
+            <a class="btn" href="https://github.com/TheRealSunder" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="btn" data-page="experience">Experience</span>
+          </div>
+
+        </div>
+
+        <div class="page" id="page-blog">
+          <div class="comment">// blog.php</div>
+          <h2>Blog</h2>
+          <div class="blog-header-sub">
+            Longer write-ups on what I have actually built and broken — an
+            internship spent breaking web apps on purpose, a product course that
+            taught me to stop assuming and go ask, and the AI course where I
+            learned a better data structure beats a cleverer idea.
+          </div>
+
+          <div class="blog-featured" data-page="blog-1">
+            <div class="blog-cats">LATEST · SECURITY</div>
+            <div class="blog-title-lg">Breaking Things on Purpose, Mr Robot Style</div>
+            <div class="blog-excerpt">
+              Four months of VAPT, and the surprise was how boring real
+              vulnerabilities are. Not exotic zero-days — an id in a URL that
+              counts up, a logout that never invalidates the session, a check
+              enforced only in the browser. Almost every finding was a failure of
+              assumption, not of engineering. Also: the half nobody warns you
+              about is the writing.
+            </div>
+            <div class="blog-meta">03 May 2026 · 8 min read</div>
+          </div>
+
+          <div class="blog-divider-label">ALL POSTS</div>
+
+          <div class="blog-grid">
+            <div class="blog-card" data-page="blog-1">
+              <div class="blog-cats">Security · Pentest</div>
+              <div class="blog-title-sm">Breaking Things on Purpose, Mr Robot Style</div>
+              <div class="blog-excerpt-sm">
+                DVWA was a bike with training wheels. Juice Shop was a bike with
+                the wheels on fire. The gap between solving a labeled problem and
+                finding the problem turned out to be the entire job.
+              </div>
+              <div class="blog-meta">03 May 2026 · 8 min read</div>
+            </div>
+
+            <div class="blog-card" data-page="blog-2">
+              <div class="blog-cats">Product · Customer Discovery</div>
+              <div class="blog-title-sm">A Parking Idea</div>
+              <div class="blog-excerpt-sm">
+                Our first pain point belonged to everyone, which means it belonged
+                to nobody. The second one came from forgetting my parking booklet
+                — and the best feature came from a user, not from us.
+              </div>
+              <div class="blog-meta">06 Feb 2025 · 7 min read</div>
+            </div>
+
+            <div class="blog-card" data-page="blog-3">
+              <div class="blog-cats">AI · Algorithms</div>
+              <div class="blog-title-sm">My Very First AI Course</div>
+              <div class="blog-excerpt-sm">
+                Two weeks stuck before I saw it: I was not solving a puzzle, I was
+                searching for a string. Then deadlock pruning, then Zobrist
+                hashing — the bookkeeping was the bottleneck, not the search.
+              </div>
+              <div class="blog-meta">01 Nov 2023 · 8 min read</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="page" id="page-blog-1">
+          <span class="blog-back" data-page="blog">&larr; back to blog.php</span>
+          <div class="blog-cats">Security · Pentest</div>
+          <h1 class="blog-post-title">Breaking Things on Purpose, Mr Robot Style</h1>
+          <div class="blog-post-meta">03 May 2026 · 8 min read</div>
+          <div class="blog-post-body">
+            <p>I spent four months as a security engineer intern doing Vulnerability Assessment and Penetration Testing (VAPT), and I want to write down what it was actually like: partly for the people who ask me what ethical hacking means, and partly for the version of me who was applying to internships a year ago with no clue what the day-to-day looked like. My first week was mostly setup. Meeting my supervisor, getting my machine configured, installing the tooling. Ordinary onboarding, except the software you are installing is designed to intercept and rewrite network traffic.</p>
+            <p>Then came the assignment for the first two weeks: work through two deliberately vulnerable web applications, Damn Vulnerable Web Application (DVWA) and OWASP Juice Shop, while reading the Web Security Testing Guide (WSTG) published by the Open Worldwide Application Security Project (OWASP). If you are not in security, here is the concept. There are applications built on purpose to be broken. They are stuffed with the same flaws that show up in real systems, and they exist so that people can practice attacking software without committing a crime.</p>
+            <p>It is the equivalent of a driving range: real clubs, real swing, no windows to shatter. DVWA felt like a breeze, because it is organized, it labels its own vulnerabilities and it has difficulty levels; you know what you are looking for before you start looking. Juice Shop was another thing entirely. If DVWA was riding a bike with training wheels, Juice Shop was riding a bike with the wheels on fire.</p>
+            <p>Nothing is labeled. Nothing tells you a vulnerability is there. You are dropped into what looks like an ordinary online store and told, in effect, that there are problems in here and you should go find them. That gap between solving a labeled problem and finding the problem turned out to be the entire job.</p>
+            <p>It took me a while to land my first three-star vulnerability, and when that green success modal finally appeared on my screen I felt genuinely ecstatic. It is a slightly ridiculous thing to be that happy about. A small box of text appeared in a browser. But it was the first time the thing I had reasoned my way toward actually matched what the application did, and that feedback loop is addictive in a way I did not expect.</p>
+            <p>After the ramp-up, the rhythm settled into something steadier: meet with my manager, take the day's task, work it and keep reading the WSTG in the gaps. That guide deserves explanation, because it is the thing that most changes how you see software, and it is what turned the flailing of those first two weeks into something closer to a process. The WSTG is a structured testing checklist maintained by OWASP. It breaks a web application into testable surfaces: how it handles identity, how it manages sessions, how it validates input and how it enforces who is allowed to do what. For each surface it lists what to test and how, which makes it less a list of tricks than a way of decomposing a system into questions.</p>
+            <p>This is the part people usually get wrong about the job. The mental image is a hooded figure typing very fast until a progress bar fills. The reality is closer to a building inspector's walkthrough: you have a methodology, you work it surface by surface, and you write down what you find in a form someone else can verify and fix. Being the curious type, this was also when I caught up on The Hacker News and other industry reporting each day.</p>
+            <p>Partly for context; partly because a breach in the news is a live case study in exactly the class of flaw you might be testing for that afternoon. Days never felt long, because there was always something new. My supervisor put it best: fifteen years in this industry and he still learns something new. That sentence stuck with me harder than anything else from the internship.</p>
+            <p>Fifteen years in, and the field is still generating novelty faster than one person can absorb it. I remember thinking that this is what I want to be doing in ten or fifteen years: still learning, in something that genuinely holds my interest.</p>
+            <p>The methodology gave me a way to look, and what I found once I could actually look was the most surprising part of the whole four months. Real vulnerabilities are, overwhelmingly, boring. Not boring to find; finding them is the fun part. Boring in the sense that they are almost never exotic, and almost never zero-days in the encryption itself.</p>
+            <p>They look more like this. A system lets you view your own record at an address ending in 1042, and cheerfully shows you someone else's when you change it to 1043. A logout button removes the session from your browser but never actually invalidates it on the server, so the old key still opens the door. A restriction is enforced only in the browser, as a greyed-out button or a form that rejects bad input, with no matching check on the server; anything the browser enforces, the user can un-enforce. A software component was fine when it was chosen in 2018 and has been quietly unmaintained ever since, accumulating publicly documented flaws that anyone can look up.</p>
+            <p>Notice the pattern. Almost none of these are failures of cryptography or clever engineering. They are failures of assumption. Someone assumed the only way to reach a page was by clicking the link that leads there.</p>
+            <p>Someone assumed that if the button is disabled, nobody will press it. Someone assumed that if the app is the only thing talking to the Application Programming Interface (API), the API does not need to check who is calling. An attacker is simply someone who does not share your assumptions, and that reframing is the single most transferable thing I picked up. It applies well beyond security.</p>
+            <p>Most systems fail not where they were designed poorly, but where they were designed for a user who behaves the way the designer imagined.</p>
+            <p>Finding the flaw, though, is only half of it, and the half nobody warns you about is that a meaningful fraction of this work is writing. A finding that exists only in your head is worth nothing. It has to become a report covering what the issue is, how you reproduced it step by step, why it matters in business terms rather than technical ones and how to fix it. It has to be legible to two audiences at once: the engineer who will patch it and the executive who will decide whether patching it is worth this quarter's budget.</p>
+            <p>Those two readers want almost opposite things from the same page, and learning to serve both without diluting either is a genuine skill. I came in thinking the technical skill was the bottleneck. It is not. Communication is.</p>
+            <p>A high-severity finding described badly gets deprioritized; a modest finding explained with a clear business impact gets fixed on Monday. The value you deliver is capped by how well you can transfer what you found into someone else's head, which means the report is not the paperwork that follows the work. It is the work.</p>
+            <p>At my exit interview, I was honest about a feeling I had not shaken: incompleteness. Four months does not do justice to the amount there was to learn, and for all the surface area the WSTG opened up, I never got to work hands-on with mobile penetration testing or network security. I picked up the outlines of both from my peers, enough to know the shape of the gap but not enough to claim the skill, and I have a strong preference for describing what I actually know rather than what I have stood adjacent to. I have come around on that feeling, though.</p>
+            <p>The incompleteness is not a flaw in the internship; it is a property of the field, and my supervisor said the same thing from fifteen years in. If four months had felt sufficient, that would have been evidence I had picked something too small. What I came away with is not a finished skill set but a working method: decompose the system, question the assumptions, test the boundaries and write down what you find in a way someone else can act on. That transfers to mobile, to network, to cloud and to anything else I point it at.</p>
+            <p>Would I do it again? Without hesitation. Interning in a field I am genuinely interested in is the best decision I have made so far, not because it was comfortable, since the Juice Shop weeks were a steady diet of being wrong, but because the discomfort was the useful kind, where being wrong is cheap, feedback is fast and every failed attempt narrows the search space a little. If you are considering this field and worried you are not technical enough yet, here is my honest read. The entry requirement is not knowing a lot.</p>
+            <p>It is being the kind of person who, shown a locked door, wonders about the hinges. The rest is methodology, and the methodology is written down, publicly, for free. Go find the wheels-on-fire version of whatever you are learning. That is where it starts.</p>
+          </div>
+        </div>
+
+        <div class="page" id="page-blog-2">
+          <span class="blog-back" data-page="blog">&larr; back to blog.php</span>
+          <div class="blog-cats">Product · Customer Discovery</div>
+          <h1 class="blog-post-title">A Parking Idea</h1>
+          <div class="blog-post-meta">06 Feb 2025 · 7 min read</div>
+          <div class="blog-post-body">
+            <p>My Innovations course was, on paper, a College of Computer Science subject. In practice it was a business class wearing a computer science jacket. We were not asked to build well. We were asked to think like people who have to convince someone to pay for a thing, which meant agile methodology, customer discovery and the discipline of the Minimum Viable Product (MVP): build the smallest version that lets you learn whether anyone actually wants this.</p>
+            <p>The first assignment was to pick a niche and find a pain point exclusive to it. Not a problem people have. A problem <em>those</em> people have. Other teams picked badminton players, political science majors, home cooks.</p>
+            <p>My team picked interns, which felt clever at the time because we were interns and we knew where the bodies were buried. Then we ran our interviews and brought back what we heard: not enough time, low productivity, no energy. Our professor's reaction was polite and completely devastating. Those are not intern problems.</p>
+            <p>Those are human problems. Every exhausted person on earth would have given us the same three answers, and a problem that belongs to everyone belongs to nobody in particular, which means you cannot design a product for it. Meanwhile the badminton team had learned that their people cannot find an available court, and the political science team had learned that their people drown in reading volume the night before class. Those are specific.</p>
+            <p>Those imply a product. Ours implied a nap. We were back at the drawing board with a chunk of the term already spent.</p>
+            <p>The next idea arrived because I was almost late for class. I had forgotten my parking booklet, which meant the lot I normally use was not an option, so I ended up parking two blocks away and running the rest. Entirely my own fault. But somewhere between the car and the classroom the thought landed: a parking app.</p>
+            <p>What I want to flag is what I did <em>not</em> do next, because the course had just finished teaching me the lesson the hard way. I did not start designing. I had a problem, but a problem I experienced once is not evidence of anything; it is an anecdote with a sample size of me. The whole failure of the intern round was that we had asserted a pain point instead of finding one.</p>
+            <p>So I pitched it to my team as a hypothesis rather than a plan, and what made it worth testing was that they said they knew a lot of people who drive to school. That gave us our niche: students who drive to campus. Narrow, identifiable and, crucially, a group we could actually go find and talk to. We interviewed around sixteen of them, and the pain points came back richer than we expected and more varied than my one bad morning.</p>
+            <p>People lose their ticket stubs. People cannot tell which lots have space before they commit to driving there. People burn time circling. Then we did the thing that I think actually saved the project: we went outside De La Salle University (DLSU) and asked students at other schools, because a problem that exists only at your own campus might just be your campus being badly run.</p>
+            <p>The answers were the same. That was the moment the idea stopped being mine and started being a finding.</p>
+            <p>The prototype we built came out of those interviews rather than out of what was fun to design, and you can see the interview transcripts in it if you know where to look. Discovery is anchored to a campus instead of a map: you pick your university from a list of DLSU, University of Santo Tomas, Ateneo de Manila University and National University, and results are framed around that anchor. Listings do not lead with distance in kilometers; they lead with walk time to a building. One minute to SJ Hall.</p>
+            <p>Five minutes to campus. That was a direct consequence of talking to students, because the quantity a person driving to a nine a.m. class is actually optimizing is not proximity to the lot, it is how long the walk is once the car is parked. The pricing carried the same fingerprints. Razon at fifty pesos for all-day, EGI Taft at a thirty peso base plus twenty-five per hour, One Archer's Place at thirty per hour, street parking on Leon Guinto at twenty per hour.</p>
+            <p>Different venues, genuinely different pricing models, because that is how parking around Taft actually works and flattening it into one price field would have made the screen tidier and the product wrong. We also chose to keep full lots visible instead of hiding them. Razon shows zero slots and stays in the list, because "it is full" is a useful answer and a lot that quietly vanishes just makes you wonder whether the app is broken. The booking flow got the same treatment: a reservation with a countdown and a non-refundable downpayment, an active session with the cost climbing in real time and split into base rate paid versus additional hours accrued, a completed booking with a review prompt, a cancelled one with the reason and the timing recorded.</p>
+            <p>Even the empty states were designed, which sounds like a small thing and is not, because what a screen shows when there is nothing on it is the part everybody skips.</p>
+            <p>Then a user handed us the second half of the product. We were doing another round of showing the MVP around, and one of the students we demoed to mentioned that his family owned a parking slot in their condo building that mostly sat empty. His question was the obvious one that had not occurred to any of us: why is this only an app for finding parking, when some of the people you are showing it to <em>have</em> parking? That reframed the whole thing from a directory into a two-sided marketplace, with commercial lots on one side and individual owners renting out their own slots on the other. So we built it in, as a separate track rather than a bolted-on filter, since renting a stranger's condo slot for eight hours is a different transaction from pulling into a commercial garage and needs its own booking model.</p>
+            <p>We took it back out for another round of interviews and it gained traction faster than the original idea had. There is a real caveat we had to write down honestly: plenty of condominium associations do not permit subletting a parking slot, so the supply side has a legal ceiling we did not have the standing to resolve. But the idea was sound, and the lesson underneath it was the more valuable takeaway. The best feature in the product was not thought of by the team.</p>
+            <p>It came from a user who was closer to the problem than we were, and it only surfaced because we were still out there showing the thing to people instead of polishing it in private.</p>
+            <p>I should be straight about how it ended. When we presented to the investors, they were visibly unmoved. Not hostile, just unconvinced, and in hindsight I understand why. What we had was a clickable prototype with no backend at all.</p>
+            <p>The login accepts any username and password you type, because there is no authentication behind it; the screens are a demonstration of a flow, not a working system. That was a deliberate scope decision and I still think it was the right one for a course about validating demand rather than shipping software, but it means we walked into that room with a story and an interface, not with traction, unit economics or a defensible answer to how you actually get commercial lots to integrate. Investors fund the second thing. Even so, I would take that course again without hesitating.</p>
+            <p>It taught me something my algorithms courses structurally could not: that being able to build the thing is not the same as knowing whether the thing should exist, and that most of the work of finding out happens in conversations rather than in an editor. The intern round failed because we assumed we already knew our users, and we were our users, which turns out to be the easiest way to be wrong. The parking round worked because we went and asked, then went and asked people at other schools, then kept asking after we had something to show and were rewarded with an idea better than our own. It did not go further than a passing grade.</p>
+            <p>But I came out of it with a habit that has outlasted the subject: when I catch myself certain about what someone needs, that certainty is now the signal to go check, not the reason to skip checking.</p>
+          </div>
+        </div>
+
+        <div class="page" id="page-blog-3">
+          <span class="blog-back" data-page="blog">&larr; back to blog.php</span>
+          <div class="blog-cats">AI · Algorithms</div>
+          <h1 class="blog-post-title">My Very First AI Course</h1>
+          <div class="blog-post-meta">01 Nov 2023 · 8 min read</div>
+          <div class="blog-post-body">
+            <p>Before this course, my entire understanding of artificial intelligence came from Warcraft. You picked Easy, Normal or Insane from a dropdown, and something on the other side of the map made decisions. I never once wondered what was behind that dropdown. Then I took my first Artificial Intelligence (AI) course, and the first machine project was Sokobot: build a bot that solves Sokoban.</p>
+            <p>Sokoban is a puzzle game where you push boxes around a warehouse grid until every box sits on a goal tile. You can only push, never pull, and you have to navigate your own body around the map to get behind each box. It takes about thirty seconds to learn and roughly forever to master. Our professor handed us the assets and the source files, so no engine code had to be written, which I was quietly grateful for; I had just come off a term of Object Oriented Programming and the last thing I needed was another Java inheritance hierarchy to argue with.</p>
+            <p>The only thing left to build was the part that thinks. We had two months. That sounded generous at the time.</p>
+            <p>I had learned enough from past cramming disasters to actually start early, which I remember being proud of for about ten minutes. I opened my laptop, opened Visual Studio Code, opened the Sokoban Wikipedia article, opened my notes and then just sat there. I knew Breadth-First Search (BFS), Depth-First Search (DFS) and heuristic search by theory. I could implement all of them on a graph.</p>
+            <p>What I could not do was see how any of that connected to a warehouse full of boxes. There was no graph in front of me. There was a grid, a player and a puzzle. That gap between knowing a technique and recognizing where it applies took me two full weeks to cross, and it is the most useful two weeks I have ever spent stuck.</p>
+            <p>What eventually broke it was remembering a line from Anton Spraul's Think Like a Programmer: deconstruct the problem. So I asked the dumbest possible questions in order. What does the problem ask? Solve the puzzle. How is a puzzle solved? By moving boxes onto goals.</p>
+            <p>How do I move a box? I press a key. So before writing a single line of solver code, I built my own Sokoban in the terminal, played entirely by typing u, d, l or r and pressing enter. The command-line graphics were honestly not bad. Then I sat there playing my own game, typing sequences like uuudlr, and it landed: I was not solving a puzzle, I was searching for a string.</p>
+            <p>The answer to the whole assignment was a sequence of four possible characters, and searching a space of possible sequences is exactly what a search algorithm does. There was my graph. Every game state was a node; every legal move was an edge.</p>
+            <p>Once the problem had a shape, the real constraint showed up: the bot had fifteen seconds to produce a solution or the test counted as a failure, and the test maps scaled from a single box up to five. Naively, the bot explores every reachable arrangement of the board, and that number grows viciously with each box added. So the work stopped being about finding an answer and became about refusing to look in places where an answer cannot be. In Sokoban that means deadlocks, which are states where the puzzle has already become unsolvable even though the game has not told you yet.</p>
+            <p>Because you can only push, a box shoved into a corner is stuck there permanently; if that corner is not a goal, the level is over and every move you make afterward is wasted computation. We implemented three kinds. Corner deadlock is the obvious one: a box wedged into a corner tile. Square deadlock catches four boxes or boxes and walls forming a two-by-two block, since none of them can move without one of the others moving first.</p>
+            <p>Simple deadlock was the interesting one, and it came from a genuinely elegant trick. Pushing and pulling are mirror images of each other, so if a box can be pulled from a goal tile to some square, it can be pushed from that square back to the goal. We strip the board of boxes, place a single box on each goal tile, recursively pull it in every direction it can go and mark every square it reaches. Any square left unmarked is a square from which no box can ever reach any goal.</p>
+            <p>After that, deadlock checking on a live board reduces to asking whether every box is standing on a marked tile. If even one is not, the branch is dead and we prune it immediately.</p>
+            <p>That pruning got us reliably through three-box maps and then stopped helping. Five-box maps still timed out, so something structural was wrong rather than something tunable. I brought it to our professor, who told me my algorithmic reasoning was sound and my deadlock work was good, but that I appeared to have forgotten my Data Structures and Algorithms class. He was the professor for that one too, which stung in a way that was clearly intentional and completely fair.</p>
+            <p>He gave me nothing else. It turned out to be exactly the right amount of help, because it moved my attention off the search logic entirely and onto the thing underneath it. I had been storing every explored state as a two-dimensional character array inside a list. Checking whether a state had been seen before meant walking the list and comparing the grids cell by cell, and most of those cells were walls and goals that never change.</p>
+            <p>Linear scan, multiplied by a full grid comparison, executed millions of times. The search was fine. The bookkeeping was the bottleneck. A few days of searching later I landed on Zobrist hashing, which is a technique from computer chess.</p>
+            <p>You generate a three-dimensional table of random long integers indexed by row, column and piece type, then compute a board's hash by combining the random numbers for whatever occupies each cell using exclusive or. Every distinct board gets a number, and checking whether we have seen a board becomes a constant-time lookup in a hash set instead of a linear crawl through arrays. That was the last piece. With Zobrist hashing feeding the transposition table, the bot cleared five-box maps.</p>
+            <p>The numbers made the tradeoffs concrete in a way the theory never had. Across fourteen solvable test maps, BFS consistently found shorter solutions than DFS, sometimes dramatically so: on one four-box map, eighty-one moves against DFS's one hundred eighty-nine. But BFS explores every state at one depth before descending, so it pays for that shortness in memory and time, and it simply failed to finish inside sixty seconds on four of the harder maps that DFS solved in under two. Since the specification graded us on producing a valid solution and not an optimal one, DFS was the correct engineering choice; optimality we did not need was costing us solutions we did.</p>
+            <p>The deadlock comparison was even cleaner, because the move counts came out identical with and without deadlock detection while the times did not. The hardest five-box map took 1.54 seconds with deadlock checking and 13.17 seconds without, and one map only ever finished with it enabled. Pruning changed nothing about the answer and everything about whether we found it. Along the way we collected the ordinary bugs that make up most of real work: a hashing bug where every child state built its own random table instead of inheriting the parent's, so identical boards hashed differently and the solution string came back null; and a marking bug where the tiles we had marked as reachable were being treated as walls by the very recursion that was supposed to traverse them, which quietly broke the irregular maps.</p>
+            <p>There is a lot I would do differently now. Representing a state as just the player coordinate and the box coordinates instead of copying the whole grid. Using A* search with a distance heuristic to get shorter, less erratic solution paths. We ran out of time and skill for both, and saying so is more useful to me than pretending otherwise.</p>
+            <p>What I actually took from the course was smaller and more durable than any of it: that the AI in that Warcraft dropdown was never magic, that rule-based systems and search are enough to produce something that looks convincingly like thought, and that the difference between a bot that fails and a bot that works is usually not a cleverer idea but a better data structure sitting underneath the same one. I built this with two teammates who handled the comparative evaluation and testing while I worked on the state representation, the search tree, the hashing and the deadlock logic. But the lesson I keep is the one from that first stuck fortnight. When you cannot see the algorithm, stop looking for the algorithm.</p>
+            <p>Go build the smallest possible version of the problem and play with it until it tells you what it actually is.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel">
+        <div class="panel-header">
+          <span class="panel-tab"><img src="bash_logo.webp" alt=""> TERMINAL</span>
+          <span class="panel-close" id="panel-close">X</span>
+        </div>
+        <div class="panel-body" id="terminal-output">
+          <div class="term-line">Portfolio Terminal [Version 1.0.0]</div>
+          <div class="term-line">Type 'help' for a list of available commands.</div>
+        </div>
+        <div class="panel-input-row">
+          <span class="prompt">PS C:\portfolio&gt;</span>
+          <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="statusbar">
+    <span>main</span>
+    <span id="status-file"></span>
+    <span id="status-lang"></span>
+  </div>
+
+  <div class="modal-backdrop" id="search-modal">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Go to file..." autocomplete="off" spellcheck="false">
+      <div class="search-results" id="search-results"></div>
+      <div class="search-hint">↑↓ navigate · ⏎ open · esc close</div>
+    </div>
+  </div>
+
+  <script>
+    /* ---- theme ---- */
+    const THEMES = ['dark', 'light', 'monokai', 'solarized'];
+
+    function setTheme(name) {
+      if (!THEMES.includes(name)) name = 'dark';
+      /* dark is the bare :root, the rest are data-theme blocks */
+      if (name === 'dark') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme', name);
+      localStorage.setItem('theme', name);
+      document.querySelectorAll('.theme-option').forEach(o => {
+        o.classList.toggle('selected', o.dataset.themeName === name);
+      });
+    }
+
+    setTheme(localStorage.getItem('theme') || 'dark');
+
+    document.querySelectorAll('.theme-option').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setTheme(opt.dataset.themeName);
+        document.getElementById('theme-menu').classList.remove('open');
+      });
+    });
+
+    const files = {
+      home:           { label: 'home.ts',             icon: 'typescript_logo.png', lang: 'TypeScript', breadcrumb: 'portfolio > src > home.ts' },
+      about:          { label: 'about.py',           icon: 'python_icon.png',     lang: 'Python',     breadcrumb: 'portfolio > src > about.py' },
+      experience:     { label: 'experience.cpp',      icon: 'cpp_logo.png',        lang: 'C++',        breadcrumb: 'portfolio > src > experience.cpp' },
+      projects:       { label: 'projects.js',         icon: 'JavaScript-logo.png', lang: 'JavaScript', breadcrumb: 'portfolio > src > projects.js' },
+      links:          { label: 'Resume.pdf',          icon: 'pdf_logo.png',        lang: 'PDF',        breadcrumb: 'portfolio > src > Resume.pdf' },
+      blog:           { label: 'blog.php',            icon: 'php_logo.svg',        lang: 'PHP',        breadcrumb: 'portfolio > src > blog.php' },
+      'blog-1':       { label: 'blog-1.php',          icon: 'php_logo.svg',        lang: 'PHP',        breadcrumb: 'portfolio > blog > blog-1.php' },
+      'blog-2':       { label: 'blog-2.php',          icon: 'php_logo.svg',        lang: 'PHP',        breadcrumb: 'portfolio > blog > blog-2.php' },
+      'blog-3':       { label: 'blog-3.php',          icon: 'php_logo.svg',        lang: 'PHP',        breadcrumb: 'portfolio > blog > blog-3.php' }
+    };
+
+    let openTabs = [];
+    let activeTab = null;
+
+    function iconHTML(icon) {
+      return /\.(png|webp|jpg|jpeg|svg)$/i.test(icon)
+        ? '<img src="' + icon + '" alt="">'
+        : icon;
+    }
+
+    function render() {
+      const tabbar = document.getElementById('tabbar');
+      tabbar.innerHTML = '';
+      openTabs.forEach(id => {
+        const f = files[id];
+        const tab = document.createElement('div');
+        tab.className = 'tab' + (id === activeTab ? ' active' : '');
+        tab.innerHTML =
+          '<span class="tab-icon">' + iconHTML(f.icon) + '</span>' +
+          '<span class="tab-label">' + f.label + '</span>' +
+          '<span class="tab-close">X</span>';
+        tab.addEventListener('click', (e) => {
+          if (e.target.classList.contains('tab-close')) closeTab(id);
+          else activateTab(id);
+        });
+        tabbar.appendChild(tab);
+      });
+
+      document.getElementById('breadcrumb').textContent = activeTab ? files[activeTab].breadcrumb : '';
+      document.getElementById('status-file').textContent = activeTab ? files[activeTab].label : '';
+      document.getElementById('status-lang').textContent = activeTab ? files[activeTab].lang : '';
+
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const activePage = document.getElementById(activeTab ? 'page-' + activeTab : 'page-empty');
+      void activePage.offsetWidth; /* forces a reflow so the fade-in replays on re-open */
+      activePage.classList.add('active');
+      document.getElementById('pages').scrollTop = 0;
+
+      document.querySelectorAll('.file').forEach(f => f.classList.toggle('active', f.dataset.page === activeTab));
+
+      if (activeTab === 'about') scrambleText(document.getElementById('scramble-name'), 'Darylle Xander Calugtong');
+      if (activeTab === 'home') runTypewriter();
+    }
+
+    /* the typing keyframe animates to a ch width so it reveals the text, not the column */
+    function runTypewriter() {
+      const el = document.getElementById('home-typewriter');
+      if (!el) return;
+      el.style.setProperty('--tw-width', el.textContent.trim().length + 'ch');
+      el.classList.remove('run');
+      void el.offsetWidth;
+      el.classList.add('run');
+    }
+
+    /* vanilla scramble-in text effect (no framework needed for a static page) */
+    function scrambleText(el, finalText, speed) {
+      if (!el) return;
+      speed = speed || 35;
+      const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?#*+-';
+      clearInterval(el._scrambleTimer);
+      let frame = 0;
+      el._scrambleTimer = setInterval(() => {
+        let out = '';
+        let done = true;
+        for (let i = 0; i < finalText.length; i++) {
+          const ch = finalText[i];
+          if (ch === ' ') { out += ' '; continue; }
+          const revealAt = i * 1.4 + 6;
+          if (frame >= revealAt) { out += ch; }
+          else { out += glyphs[Math.floor(Math.random() * glyphs.length)]; done = false; }
+        }
+        el.textContent = out;
+        frame++;
+        if (done) clearInterval(el._scrambleTimer);
+      }, speed);
+    }
+
+    function syncBlogRoute(id) {
+      if (id === 'blog') history.replaceState(null, '', '#/blog');
+      else if (id && id.startsWith('blog-')) history.replaceState(null, '', '#/blog/' + id);
+    }
+
+    /* ---- recently opened (File > Open Recent) ---- */
+    let recent = (JSON.parse(localStorage.getItem('recent') || '[]')).filter(id => files[id]);
+
+    function pushRecent(id) {
+      recent = [id].concat(recent.filter(r => r !== id)).slice(0, 3);
+      localStorage.setItem('recent', JSON.stringify(recent));
+      renderRecent();
+    }
+
+    function renderRecent() {
+      const list = document.getElementById('recent-list');
+      if (!recent.length) {
+        list.innerHTML = '<div class="search-empty">Nothing yet</div>';
+        return;
+      }
+      list.innerHTML = '';
+      recent.forEach(id => {
+        const item = document.createElement('div');
+        item.className = 'dropdown-item';
+        item.textContent = files[id].label;
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openTab(id);
+          document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
+        });
+        list.appendChild(item);
+      });
+    }
+    renderRecent();
+
+    function openTab(id) {
+      if (!openTabs.includes(id)) openTabs.push(id);
+      activeTab = id;
+      pushRecent(id);
+      syncBlogRoute(id);
+      render();
+    }
+
+    function activateTab(id) {
+      activeTab = id;
+      pushRecent(id);
+      syncBlogRoute(id);
+      render();
+    }
+
+    function closeTab(id) {
+      const idx = openTabs.indexOf(id);
+      if (idx === -1) return;
+      openTabs.splice(idx, 1);
+      if (activeTab === id) {
+        activeTab = openTabs.length ? openTabs[Math.max(0, idx - 1)] : null;
+      }
+      render();
+    }
+
+    document.querySelectorAll('.file').forEach(f => {
+      f.addEventListener('click', () => openTab(f.dataset.page));
+    });
+    document.querySelectorAll('[data-page].btn').forEach(b => {
+      b.addEventListener('click', () => openTab(b.dataset.page));
+    });
+
+    /* ---- menu bar ---- */
+    document.querySelectorAll('.menu-label').forEach(label => {
+      label.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const menu = label.parentElement;
+        const wasOpen = menu.classList.contains('open');
+        document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
+        if (!wasOpen) menu.classList.add('open');
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
+    });
+
+    document.querySelectorAll('.dropdown-item, .activitybar [data-action]').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        runAction(item.dataset.action);
+        document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
+      });
+    });
+
+    function runAction(action) {
+      switch (action) {
+        case 'new-tab':         openTab('home'); break;
+        case 'close-tab':       if (activeTab) closeTab(activeTab); break;
+        case 'close-all-tabs':  openTabs = []; activeTab = null; render(); break;
+        case 'toggle-sidebar':  document.querySelector('.sidebar').classList.toggle('collapsed'); break;
+        case 'toggle-terminal': togglePanel(); break;
+        case 'new-terminal':    togglePanel(true); break;
+        case 'clear-terminal':  clearTerminal(); break;
+        case 'close-terminal':  togglePanel(false); break;
+        case 'open-search':     openSearch(); break;
+        case 'open-github':     window.open('https://github.com/TheRealSunder', '_blank', 'noopener'); break;
+        case 'toggle-theme-menu': {
+          const tm = document.getElementById('theme-menu');
+          tm.classList.toggle('open');
+          break;
+        }
+        default: /* noop */ break;
+      }
+    }
+
+    /* ---- go-to-file modal (search icon) ---- */
+    const searchModal   = document.getElementById('search-modal');
+    const searchInput   = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    let searchSel = 0;
+
+    function searchMatches() {
+      const q = searchInput.value.trim().toLowerCase();
+      return Object.keys(files).filter(id => !q || files[id].label.toLowerCase().includes(q));
+    }
+
+    function renderSearch() {
+      const matches = searchMatches();
+      if (searchSel >= matches.length) searchSel = Math.max(0, matches.length - 1);
+      if (!matches.length) {
+        searchResults.innerHTML = '<div class="search-empty">No matching file</div>';
+        return;
+      }
+      searchResults.innerHTML = '';
+      matches.forEach((id, i) => {
+        const row = document.createElement('div');
+        row.className = 'search-item' + (i === searchSel ? ' sel' : '');
+        row.innerHTML =
+          iconHTML(files[id].icon) +
+          '<span>' + files[id].label + '</span>' +
+          '<span class="search-sub">' + files[id].lang + '</span>';
+        row.addEventListener('click', () => chooseSearch(id));
+        searchResults.appendChild(row);
+      });
+    }
+
+    function chooseSearch(id) {
+      closeSearch();
+      openTab(id);
+    }
+
+    function openSearch() {
+      searchInput.value = '';
+      searchSel = 0;
+      renderSearch();
+      searchModal.classList.add('open');
+      searchInput.focus();
+    }
+
+    function closeSearch() {
+      searchModal.classList.remove('open');
+    }
+
+    searchInput.addEventListener('input', () => { searchSel = 0; renderSearch(); });
+    searchInput.addEventListener('keydown', (e) => {
+      const matches = searchMatches();
+      if (e.key === 'ArrowDown')      { e.preventDefault(); searchSel = Math.min(searchSel + 1, matches.length - 1); renderSearch(); }
+      else if (e.key === 'ArrowUp')   { e.preventDefault(); searchSel = Math.max(searchSel - 1, 0); renderSearch(); }
+      else if (e.key === 'Enter')     { if (matches[searchSel]) chooseSearch(matches[searchSel]); }
+      else if (e.key === 'Escape')    { closeSearch(); }
+    });
+    searchModal.addEventListener('click', (e) => { if (e.target === searchModal) closeSearch(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
+
+    /* clicking anywhere else dismisses the theme picker */
+    document.addEventListener('click', () => {
+      document.getElementById('theme-menu').classList.remove('open');
+    });
+
+    /* ---- home.ts: swap the name between the real one and the handle ---- */
+    (function cycleHomeName() {
+      const NAMES = ['Darylle Calugtong', 'TheRealSunder'];
+      let i = 0;
+      (function next() {
+        setTimeout(() => {
+          i = 1 - i;
+          scrambleText(document.getElementById('home-name'), NAMES[i]);
+          next();
+        }, 3000 + Math.random() * 4000);
+      })();
+    })();
+
+    /* ---- projects: pixel-hover filter buttons ---- */
+    function initPixelButtons() {
+      const pixelSize = 6;
+      document.querySelectorAll('.pixel-btn').forEach(btn => {
+        const container = btn.querySelector('.pixel-container');
+        if (!container || container.dataset.init) return;
+        container.dataset.init = '1';
+        const cols = Math.floor(btn.offsetWidth  ? btn.offsetWidth  / pixelSize : 150 / pixelSize);
+        const rows = Math.floor(btn.offsetHeight ? btn.offsetHeight / pixelSize : 42 / pixelSize);
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const px = document.createElement('div');
+            px.className = 'pixel';
+            px.style.left = (c * pixelSize) + 'px';
+            px.style.top = (r * pixelSize) + 'px';
+            px.style.transitionDelay = (Math.random() * 0.4) + 's';
+            container.appendChild(px);
+          }
+        }
+      });
+    }
+    initPixelButtons();
+
+    document.querySelectorAll('.project-filter-bar .pixel-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.project-filter-bar .pixel-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const genre = btn.dataset.filter;
+        document.querySelectorAll('.project-card').forEach(card => {
+          card.style.display = (genre === 'all' || card.dataset.genre === genre) ? '' : 'none';
+        });
+      });
+    });
+
+    /* ---- terminal panel ---- */
+    const panel = document.getElementById('panel');
+    const termOutput = document.getElementById('terminal-output');
+    const termInput = document.getElementById('terminal-input');
+    let cmdHistory = [];
+    let histIndex = 0;
+
+    function togglePanel(force) {
+      const open = typeof force === 'boolean' ? force : !panel.classList.contains('open');
+      panel.classList.toggle('open', open);
+      if (open) termInput.focus();
+    }
+    document.getElementById('panel-close').addEventListener('click', () => togglePanel(false));
+
+    function printLine(text, cls) {
+      const div = document.createElement('div');
+      div.className = 'term-line' + (cls ? ' ' + cls : '');
+      div.textContent = text;
+      termOutput.appendChild(div);
+      termOutput.scrollTop = termOutput.scrollHeight;
+    }
+    function clearTerminal() { termOutput.innerHTML = ''; }
+
+    function findFile(name) {
+      const key = (name || '').toLowerCase();
+      return Object.keys(files).find(id => id === key || files[id].label.toLowerCase() === key);
+    }
+
+    const PROJECT_LOG = [
+      ['6f2a9c1', 'Homelab SOC and SIEM', 'Feb 2026 - Apr 2026', 'Wazuh + Caldera detection lab, MITRE-mapped rules'],
+      ['4d81ab3', 'Web Application System Security Hardening', 'Aug 2025 - Oct 2025', 'RBAC + Keycloak/OIDC migration for a LIS web app'],
+      ['2c9f0e5', 'Dynamic Malware Analysis & Dataset Construction', 'Mar 2025 - Dec 2025', '10k+ sample dataset, CAPEv2 sandboxing, 93% accuracy classifier'],
+      ['1a77bd0', 'Cloud-Based Threat Detection & Monitoring System', 'Jun 2025 - Aug 2025', 'AWS CloudTrail rule-based + anomaly detection, Streamlit dashboard'],
+      ['09e3cc2', 'Application Threat Modeling (Coffee System)', 'Mar 2025 - Dec 2025', 'STRIDE/DREAD assessment, 150 threats identified'],
+      ['003f1aa', 'Enterprise Network Design & Implementation', 'Nov 2025 - Dec 2025', 'VLSM/VLAN segmentation, team project']
+    ];
+
+    function runCommand(raw) {
+      const trimmed = raw.trim();
+      printLine('PS C:\\portfolio> ' + trimmed, 'cmd');
+      if (!trimmed) return;
+      cmdHistory.push(trimmed);
+      histIndex = cmdHistory.length;
+
+      const parts = trimmed.split(/\s+/);
+      const cmd = parts[0].toLowerCase();
+      const rest = trimmed.slice(cmd.length).trim();
+
+      if (cmd === 'help') {
+        [
+          'Available commands:',
+          '  help            show this list',
+          '  whoami          who am I',
+          '  git log         recent project history',
+          '  ls              list files in this portfolio',
+          '  cat <file>      preview a file',
+          '  open <file>     open a file as a tab',
+          '  clear           clear the terminal'
+        ].forEach(l => printLine(l));
+      } else if (cmd === 'whoami') {
+        [
+          'Darylle Calugtong',
+          'Security Engineer -- Pentesting / Blue Team / Applied ML',
+          'ISC2 CC | 2026 Graduate'
+        ].forEach(l => printLine(l));
+      } else if (cmd === 'git' && rest.toLowerCase() === 'log') {
+        PROJECT_LOG.forEach(([hash, title, date, desc]) => {
+          printLine('commit ' + hash);
+          printLine('Date:   ' + date);
+          printLine('');
+          printLine('    ' + title);
+          printLine('    ' + desc);
+          printLine('');
+        });
+      } else if (cmd === 'ls') {
+        Object.values(files).forEach(f => printLine(f.label));
+      } else if (cmd === 'cat') {
+        const id = findFile(rest);
+        if (!id) { printLine("cat: " + rest + ": No such file", 'error'); return; }
+        printLine('--- ' + files[id].label + ' ---');
+        printLine(document.getElementById('page-' + id).innerText.trim().split('\n').slice(0, 4).join('\n'));
+      } else if (cmd === 'open') {
+        const id = findFile(rest);
+        if (!id) { printLine("open: " + rest + ": No such file", 'error'); return; }
+        printLine('Opening ' + files[id].label + '...');
+        openTab(id);
+      } else if (cmd === 'clear') {
+        clearTerminal();
+      } else if (cmd === 'sudo') {
+        printLine('Nice try.', 'error');
+      } else {
+        printLine(cmd + ": command not found. Type 'help' for a list of commands.", 'error');
+      }
+    }
+
+    termInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        runCommand(termInput.value);
+        termInput.value = '';
+      } else if (e.key === 'ArrowUp') {
+        if (histIndex > 0) { histIndex--; termInput.value = cmdHistory[histIndex]; }
+        e.preventDefault();
+      } else if (e.key === 'ArrowDown') {
+        if (histIndex < cmdHistory.length - 1) { histIndex++; termInput.value = cmdHistory[histIndex]; }
+        else { histIndex = cmdHistory.length; termInput.value = ''; }
+        e.preventDefault();
+      }
+    });
+    termOutput.addEventListener('click', () => termInput.focus());
+
+    window.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.key === '`') { e.preventDefault(); togglePanel(); }
+    });
+
+    /* ---- experience timeline: click-to-expand / minimize (Motion handles the scroll reveal, see module script below) ---- */
+    const timelineEl = document.getElementById('experience-timeline');
+    if (timelineEl) {
+      timelineEl.querySelectorAll('.timeline-card').forEach(card => {
+        card.addEventListener('click', () => card.classList.add('expanded'));
+      });
+      timelineEl.querySelectorAll('.timeline-minimize-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          btn.closest('.timeline-card').classList.remove('expanded');
+        });
+      });
+    }
+
+    /* ---- blog ---- */
+    document.querySelectorAll('.blog-featured, .blog-card, .blog-back').forEach(el => {
+      el.addEventListener('click', () => openTab(el.dataset.page));
+    });
+
+    const blogHashMatch = location.hash.match(/^#\/blog\/(blog-\d+)$/);
+    if (blogHashMatch && files[blogHashMatch[1]]) {
+      openTab('blog');
+      openTab(blogHashMatch[1]);
+    } else if (location.hash === '#/blog') {
+      openTab('blog');
+    } else {
+      openTab('home');
+    }
+
+    /* ---- home: copy email to clipboard ---- */
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const copyBubble = document.getElementById('copy-bubble');
+    if (copyEmailBtn && copyBubble) {
+      copyEmailBtn.addEventListener('click', () => {
+        const email = 'daryllecalugtong@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          copyBubble.textContent = 'Copied!';
+          copyBubble.classList.add('show');
+          setTimeout(() => copyBubble.classList.remove('show'), 1500);
+        }).catch(() => {
+          copyBubble.textContent = 'Copy failed';
+          copyBubble.classList.add('show');
+          setTimeout(() => copyBubble.classList.remove('show'), 1500);
+        });
+      });
+    }
+  </script>
+
+  <script type="module">
+    import { animate, inView, stagger } from "https://esm.sh/motion";
+    window.Motion = { animate, inView, stagger };
+    window.dispatchEvent(new Event('motion-ready'));
+
+    const timelineEl = document.getElementById('experience-timeline');
+    if (timelineEl) {
+      const progress = timelineEl.querySelector('.timeline-progress');
+      const items = timelineEl.querySelectorAll('.timeline-item');
+
+      inView(timelineEl, () => {
+        if (progress) {
+          animate(progress, { transform: ['scaleY(0)', 'scaleY(1)'] }, { duration: 1.1, easing: 'ease-out' });
+        }
+        animate(
+          items,
+          { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
+          { duration: 0.5, delay: stagger(0.12), easing: [0.25, 0.46, 0.45, 0.94] }
+        );
+        items.forEach((item) => {
+          const fill = item.querySelector('.timeline-progress-fill');
+          if (fill) animate(fill, { width: ['0%', '100%'] }, { duration: 1, delay: 0.3, easing: 'ease-out' });
+        });
+      }, { amount: 0.3 });
+    }
+  </script>
+
+</body>
+</html>

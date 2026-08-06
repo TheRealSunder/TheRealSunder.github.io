@@ -1,0 +1,23 @@
+# Publish only the site. Everything else in this folder stays local.
+/*
+
+!/.gitignore
+!/index.html
+
+# Resume is per-request for now. To re-enable the download, add back:
+#   !/resume-data.js
+#   !/Resume.pdf
+# and restore the <script src="resume-data.js"> tag plus downloadResume() in index.html.
+
+# referenced assets
+!/JavaScript-logo.png
+!/bash_logo.webp
+!/cpp_logo.png
+!/github.svg
+!/linkedin-app-white-icon.webp
+!/mail.png
+!/pdf_logo.png
+!/php_logo.svg
+!/python_icon.png
+!/typescript_logo.png
+!/vscode.webp

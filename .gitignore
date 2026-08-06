@@ -3,6 +3,9 @@
 
 !/.gitignore
 !/index.html
+!/.github/
+!/.github/workflows/
+!/.github/workflows/pages.yml
 
 # Resume is per-request for now. To re-enable the download, add back:
 #   !/resume-data.js

